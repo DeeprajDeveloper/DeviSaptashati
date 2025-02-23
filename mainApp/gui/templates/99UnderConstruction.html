@@ -1,0 +1,24 @@
+{% extends 'layout.html' %}
+
+{% block title %}Under Construction{% endblock %}
+
+{% block content %}
+
+
+<div class="under-construction-container">
+    <div class="text">
+        Thank you for visiting this page. 
+        <br/>It is currently being worked upon.
+        <br/>Please visit again.
+        <br/><hindi>॥ धन्यवादः॥</hindi>
+    </div>
+    <div class="image-holder">
+        <img src="{{ url_for('bp_gui.static', filename='/images/UnderConstruction_torn.png') }}" alt="" srcset="" title="Vishwakarma Puja | AI Generated">
+    </div>
+    <div class="home-button">
+        <a href="{{ url_for('bp_gui.index') }}">Go Back</a>
+    </div>
+</div>
+
+
+{% endblock %}

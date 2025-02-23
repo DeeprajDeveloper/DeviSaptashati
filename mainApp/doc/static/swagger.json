@@ -1,0 +1,361 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Devi Saptashati - API Documentation",
+        "description": "This is an API dedicated to pull verses for Devi Saptashati.",
+        "version": "1.0.0",
+        "contact": {
+            "name": "Adhikary, Deepraj",
+            "email": "deepraj.developer@gmail.com"
+        }
+    },
+    "host": "localhost:700",
+    "basePath": "/api",
+    "schemes": ["http"],
+    "paths": {
+        "/health": {
+            "get": {
+                "summary": "Health API",
+                "description": "Retrieve health of the API",
+                "responses": {
+                    "200": {
+                        "description": "Healthy",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "status": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/search/versesByName": {
+            "get": {
+                "summary": "Search verse by name",
+                "description": "Retrieve all verses by name.",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "",
+                        "description": "Information to extract",
+                        "schema": {
+                            "type": "object",
+                            "required": ["verseName", "lang"],
+                            "properties": {
+                                "verseName": {
+                                    "type": "string",
+                                    "example": "First Chapter"
+                                },
+                                "lang": {
+                                    "type": "string",
+                                    "example": "en"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "statusInformation": {
+                                    "type": "object",
+                                    "properties": {
+                                        "statusCode": { "type": "string" },
+                                        "statusDescription": {
+                                            "type": "string"
+                                        },
+                                        "statusMessageText": {
+                                            "type": "string"
+                                        }
+                                    }
+                                },
+                                "dataExtract": {
+                                    "type": "object",
+                                    "properties": {
+                                        "id": { "type": "number" },
+                                        "verseInformation": {
+                                            "type": "object",
+                                            "properties": {
+                                                "verseNo": { "type": "number" },
+                                                "shlokaDevanagari": {
+                                                    "type": "string"
+                                                },
+                                                "shlokaIAST": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        },
+                                        "verseMeanings": {
+                                            "type": "object",
+                                            "properties": {
+                                                "english": { "type": "string" },
+                                                "hindi": { "type": "string" }
+                                            }
+                                        },
+                                        "verseContext": {
+                                            "type": "object",
+                                            "properties": {
+                                                "nameDevanagari": {
+                                                    "type": "string"
+                                                },
+                                                "nameIAST": {
+                                                    "type": "string"
+                                                },
+                                                "nameEnglish": {
+                                                    "type": "string"
+                                                },
+                                                "additionalContext": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "failure",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "statusInformation": {
+                                    "type": "object",
+                                    "properties": {
+                                        "statusCode": { "type": "string" },
+                                        "statusDescription": {
+                                            "type": "string"
+                                        },
+                                        "statusMessageText": {
+                                            "type": "string"
+                                        }
+                                    }
+                                },
+                                "errorInformation": {
+                                    "type": "object",
+                                    "properties": {
+                                        "errorCode": { "type": "string" },
+                                        "errorDescription": {
+                                            "type": "string"
+                                        },
+                                        "errorStacktrace": { "type": "string" }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/search/versesById": {
+            "get": {
+                "summary": "Search verse by name",
+                "description": "Retrieve all verses by id.",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "",
+                        "description": "Information to extract",
+                        "schema": {
+                            "type": "object",
+                            "required": ["verseId", "verseCategory"],
+                            "properties": {
+                                "verseId": {
+                                    "type": "number",
+                                    "example": "300"
+                                },
+                                "verseCategory": {
+                                    "type": "string",
+                                    "example": "exit"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "statusInformation": {
+                                    "type": "object",
+                                    "properties": {
+                                        "statusCode": { "type": "string" },
+                                        "statusDescription": {
+                                            "type": "string"
+                                        },
+                                        "statusMessageText": {
+                                            "type": "string"
+                                        }
+                                    }
+                                },
+                                "dataExtract": {
+                                    "type": "object",
+                                    "properties": {
+                                        "id": { "type": "number" },
+                                        "verseInformation": {
+                                            "type": "object",
+                                            "properties": {
+                                                "verseNo": { "type": "number" },
+                                                "shlokaDevanagari": {
+                                                    "type": "string"
+                                                },
+                                                "shlokaIAST": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        },
+                                        "verseMeanings": {
+                                            "type": "object",
+                                            "properties": {
+                                                "english": { "type": "string" },
+                                                "hindi": { "type": "string" }
+                                            }
+                                        },
+                                        "verseContext": {
+                                            "type": "object",
+                                            "properties": {
+                                                "nameDevanagari": {
+                                                    "type": "string"
+                                                },
+                                                "nameIAST": {
+                                                    "type": "string"
+                                                },
+                                                "nameEnglish": {
+                                                    "type": "string"
+                                                },
+                                                "additionalContext": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "failure",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "statusInformation": {
+                                    "type": "object",
+                                    "properties": {
+                                        "statusCode": { "type": "string" },
+                                        "statusDescription": {
+                                            "type": "string"
+                                        },
+                                        "statusMessageText": {
+                                            "type": "string"
+                                        }
+                                    }
+                                },
+                                "errorInformation": {
+                                    "type": "object",
+                                    "properties": {
+                                        "errorCode": { "type": "string" },
+                                        "errorDescription": {
+                                            "type": "string"
+                                        },
+                                        "errorStacktrace": { "type": "string" }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/update/versesMeaning": {
+            "post": {
+                "summary": "Update verse Meaning",
+                "description": "Update the meaning of a devanagari verse.",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "",
+                        "description": "Information to update",
+                        "schema": {
+                            "type": "object",
+                            "required": ["action", "dataInput"],
+                            "properties": {
+                                "action": {
+                                    "type": "number",
+                                    "example": "300"
+                                },
+                                "dataInput": {
+                                    "type": "object",
+                                    "properties": {
+                                        "id": { "type": "string" },
+                                        "meaningLanguage": { "type": "string" },
+                                        "meaningDescription": { "type": "string" }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "statusInformation": {
+                                    "type": "object",
+                                    "properties": {
+                                        "statusCode": { "type": "string" },
+                                        "statusDescription": {
+                                            "type": "string"
+                                        },
+                                        "statusMessageText": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "failure",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "statusInformation": {
+                                    "type": "object",
+                                    "properties": {
+                                        "statusCode": { "type": "string" },
+                                        "statusDescription": {
+                                            "type": "string"
+                                        },
+                                        "statusMessageText": {
+                                            "type": "string"
+                                        }
+                                    }
+                                },
+                                "errorInformation": {
+                                    "type": "object",
+                                    "properties": {
+                                        "errorCode": { "type": "string" },
+                                        "errorDescription": {
+                                            "type": "string"
+                                        },
+                                        "errorStacktrace": { "type": "string" }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

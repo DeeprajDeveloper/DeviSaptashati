@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Devi Saptashati | {% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('bp_gui.static', filename='styleSheets/mainDesktop.css') }}">
+    <link rel="stylesheet" href="{{ url_for('bp_gui.static', filename='styleSheets/mainTablet.css') }}">
+    <link rel="stylesheet" href="{{ url_for('bp_gui.static', filename='styleSheets/mainMobile.css') }}">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('bp_gui.static', filename='images/logos/Logo_v3_2x.png') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@200..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Asul:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <a href="{{ url_for('bp_gui.index') }}">
+                <img src="{{ url_for('bp_gui.static', filename='images/logos/deviSaptashati_2x.png') }}" alt="" srcset="" title="Devi Saptashati">
+            </a>
+        </div>
+        <p class="social">
+            <a href="https://github.com/DeeprajDeveloper" target="_blank" title="GitHub | DeeprajDeveloper">
+                <img alt="Banner GIF" src="{{ url_for('bp_gui.static', filename='images/icons/github.png') }}" />
+            </a>
+            <a href="mailto:deepraj.developer@gmail.com" title="Email | deepraj.developer@gmail.com">
+                <img alt="Banner GIF" src="{{ url_for('bp_gui.static', filename='images/icons/new-email.png') }}" />
+            </a>
+            <a href="/api/docs" target="_blank" title="API Documentation">
+                <img alt="Banner GIF" src="{{ url_for('bp_gui.static', filename='images/icons/api.png') }}" />
+            </a>
+        </p>
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <div class="copyrights">
+            <p>&copy; 2025 DeviSaptashati.info</p>
+            <p>Developer: {{ author }} | Version: {{ version }}</p>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('bp_gui.static', filename='javascript/main.js') }}"></script>
+</body>
+
+</html>
