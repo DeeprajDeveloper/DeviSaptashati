@@ -53,6 +53,7 @@ class Logging:
 class DataQueries:
     SELECT_QUERY = {
         'common': {
+            'getTestQuery': r"SELECT * FROM typeInfo",
             'getSectionByName': r"SELECT whenToRead FROM stotraSuktaMantraInfo where name like '?%'",
             'getSectionByID': r"SELECT whenToRead FROM stotraSuktaMantraInfo where ssmid like '?%'",
             'getIDByEnglishName': r"SELECT MIN(ssmid) from nameTransliteration where iastTranslation like '%?%' or enTranslation like '%?%'",

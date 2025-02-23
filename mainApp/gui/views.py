@@ -1,5 +1,6 @@
 from flask import Blueprint, render_template
 from mainApp.constants import (Information as Info, DataQueries as Query)
+from mainApp.gui import functionality as gui_func
 from utilities.sqlite_util import *
 from datetime import datetime
 import config
@@ -17,7 +18,8 @@ bp_gui = Blueprint(
 
 @bp_gui.route('/test')
 def test():
-    return render_template('test.html')
+    test_results = gui_func.test_database_connection()
+    return render_template('test.html', resultsList=test_results)
 
 
 @bp_gui.route('/')

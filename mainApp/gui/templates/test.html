@@ -2,9 +2,27 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Devi Saptashati | Test Page</title>
 </head>
 <body>
-    this is a home page
+    <h1>TEST PAGE</h1>
+    <p>Below is a database result retrieved from the table typeInfo.</p>
+
+    <table>
+        {% for item in resultsList %}
+        <tr>
+            <td>{{ loop.index }}</td>
+            <td>{{ item[0] }}</td>
+            <td>{{ item[1] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
 </body>
+<style>
+    * { font-family: 'Calibri';}
+    body { margin: 10px 40px; }
+    table { border: 1px solid #c0c0c0; }
+    td { border: 1px solid #c0c0c0; padding: 4px; }
+
+</style>
 </html>
