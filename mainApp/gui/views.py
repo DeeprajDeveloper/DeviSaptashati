@@ -36,6 +36,7 @@ def getting_started():
 @bp_gui.route('/initPurifyVerse')
 def initial_purify_verses():
     """ Loading "Step 1: Initiation and Purification Verses" page """
+    print(f"Database Directory: {config.DATABASE_URL}")
     verses_list = dql_fetch_all_rows(database=config.DATABASE_URL, sql_script=Query.SELECT_QUERY['introductory']['getIntroductionVerseNames'])
     return render_template('02InitiationPurification.html', optionList=verses_list, version=Info.APP_INFO['version'], author=Info.APP_INFO['author'])
 
