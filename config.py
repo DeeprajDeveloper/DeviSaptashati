@@ -10,8 +10,8 @@ load_dotenv(ENV_FILE, override=True)
 APP_NAME = os.getenv("APP_NAME", "DeviSaptashati")
 DEBUG = os.getenv("DEBUG", "False").lower() in ("true", "1")
 DATABASE_URL = os.getenv("DATABASE_URL", fr"{basedir}/database/deviSaptashatiDB.db")
-PORT = os.getenv("FLASK_PORT", 700)
-HOST = os.getenv('FLASK_HOST', '127.0.0.1')
+PORT = int(os.getenv("FLASK_PORT", 700))
+HOST = '0.0.0.0'
 SECRET_KEY = 'L2@G3W4E'
 
 SWAGGER_ENDPOINT = "/api/docs"
